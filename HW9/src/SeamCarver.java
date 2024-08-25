@@ -58,8 +58,7 @@ public class SeamCarver {
         int g2 = (rgb2 >>  8) & 0xFF;
         int b2 = (rgb2 >>  0) & 0xFF;
 
-        return Math.pow(r1 - r2, 2) + Math.pow(g1 - g2, 2)
-                + Math.pow(b1 - b2, 2);
+        return Math.pow(r1 - r2, 2) + Math.pow(g1 - g2, 2)+ Math.pow(b1 - b2, 2);
     }
 
     // sequence of indices for vertical seam

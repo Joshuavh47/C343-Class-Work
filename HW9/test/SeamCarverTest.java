@@ -20,7 +20,7 @@ public class SeamCarverTest {
         //Repeat each time test multiple times to ensure efficiency
 
         //507x285 test
-        Picture p=new Picture("testImage.png");
+        Picture p=new Picture("test-images/unaltered/testImage.png");
         SeamCarver s=new SeamCarver(p);
         for(int j=0;j<5;j++) {
             long start = System.currentTimeMillis();
@@ -38,7 +38,7 @@ public class SeamCarverTest {
 
 
         //274x186 test
-        p=new Picture("testImage2.png");
+        p=new Picture("test-images/unaltered/testImage2.png");
         s=new SeamCarver(p);
         for(int j=0;j<5;j++) {
             long start = System.currentTimeMillis();
@@ -56,7 +56,7 @@ public class SeamCarverTest {
 
 
         //high resolution test (1333x2000)
-        p=new Picture("highResTest.jpg");
+        p=new Picture("test-images/unaltered/highResTest.jpg");
         s=new SeamCarver(p);
         for(int j=0;j<5;j++) {
             long start = System.currentTimeMillis();
@@ -73,7 +73,7 @@ public class SeamCarverTest {
         }
 
         //high resolution test 2 (4226x2847)
-        p=new Picture("highResTest2.jpg");
+        p=new Picture("test-images/unaltered/highResTest2.jpg");
         s=new SeamCarver(p);
         for(int j=0;j<5;j++) {
             long start = System.currentTimeMillis();
@@ -95,7 +95,7 @@ public class SeamCarverTest {
         //Repeat each time test multiple times to ensure efficiency
 
         //507x285 test
-        Picture p=new Picture("testImage.png");
+        Picture p=new Picture("test-images/unaltered/testImage.png");
         SeamCarver s=new SeamCarver(p);
         for(int j=0;j<5;j++) {
             long start = System.currentTimeMillis();
@@ -113,7 +113,7 @@ public class SeamCarverTest {
 
 
         //274x186 test
-        p=new Picture("testImage2.png");
+        p=new Picture("test-images/unaltered/testImage2.png");
         s=new SeamCarver(p);
         for(int j=0;j<5;j++) {
             long start = System.currentTimeMillis();
@@ -131,7 +131,7 @@ public class SeamCarverTest {
 
 
         //high resolution test (1333x2000)
-        p=new Picture("highResTest.jpg");
+        p=new Picture("test-images/unaltered/highResTest.jpg");
         s=new SeamCarver(p);
         for(int j=0;j<5;j++) {
             long start = System.currentTimeMillis();
@@ -148,7 +148,7 @@ public class SeamCarverTest {
         }
 
         //high resolution test 2 (4226x2847)
-        p=new Picture("highResTest2.jpg");
+        p=new Picture("test-images/unaltered/highResTest2.jpg");
         s=new SeamCarver(p);
         for(int j=0;j<5;j++) {
             long start = System.currentTimeMillis();
@@ -170,7 +170,7 @@ public class SeamCarverTest {
 
         //removes 50 horizontal seams, tests for efficiency, saves image, and asserts that the correct
         //amount of rows are removed
-        Picture p=new Picture("testImage.png");
+        Picture p=new Picture("test-images/unaltered/testImage.png");
         SeamCarver s=new SeamCarver(p);
         int height=s.height();
         long start = System.currentTimeMillis();
@@ -178,7 +178,7 @@ public class SeamCarverTest {
             int[] arr = s.findHorizontalSeam();
             s.removeHorizontalSeam(arr);
         }
-        s.picture().save("testImageHorizontallyAltered.png");
+        s.picture().save("test-images/altered/testImageHorizontallyAltered.png");
         long end = System.currentTimeMillis();
         assertEquals(50,height-s.height());
         System.out.println(end - start);
@@ -187,7 +187,7 @@ public class SeamCarverTest {
 
         //removes 20 horizontal seams, tests for efficiency, saves image, and asserts that the correct
         //amount of rows are removed
-        p=new Picture("testImage2.png");
+        p=new Picture("test-images/unaltered/testImage2.png");
         s=new SeamCarver(p);
         height=s.height();
         start = System.currentTimeMillis();
@@ -195,7 +195,7 @@ public class SeamCarverTest {
             int[] arr = s.findHorizontalSeam();
             s.removeHorizontalSeam(arr);
         }
-        s.picture().save("testImage2HorizontallyAltered.png");
+        s.picture().save("test-images/altered/testImage2HorizontallyAltered.png");
         end = System.currentTimeMillis();
         assertEquals(20,height-s.height());
         System.out.println(end - start);
@@ -207,7 +207,7 @@ public class SeamCarverTest {
         //Times for the high resolution tests can be a bit long because findHorizontalSeam() runs in O(W*H) time for
         //every pass, so in total, deleting i seams runs in O((W*H)+(W*H-1)+...+(W*H-i)). This is in addition
         //to the O(W*H) time it takes to save the image.
-        p=new Picture("highResTest.jpg");
+        p=new Picture("test-images/unaltered/highResTest.jpg");
         s=new SeamCarver(p);
         height=s.height();
         start = System.currentTimeMillis();
@@ -215,7 +215,7 @@ public class SeamCarverTest {
             int[] arr = s.findHorizontalSeam();
             s.removeHorizontalSeam(arr);
         }
-        s.picture().save("highResTestHorizontallyAltered.jpg");
+        s.picture().save("test-images/altered/highResTestHorizontallyAltered.jpg");
         end = System.currentTimeMillis();
         assertEquals(100,height-s.height());
         System.out.println(end - start);
@@ -227,7 +227,7 @@ public class SeamCarverTest {
         //Times for the high resolution tests can be a bit long because findHorizontalSeam() runs in O(W*H) time for
         //every pass, so in total, deleting i seams runs in O((W*H)+(W*H-1)+...+(W*H-i)). This is in addition
         //to the O(W*H) time it takes to save the image.
-        p=new Picture("highResTest2.jpg");
+        p=new Picture("test-images/unaltered/highResTest2.jpg");
         s=new SeamCarver(p);
         height=s.height();
         start = System.currentTimeMillis();
@@ -235,7 +235,7 @@ public class SeamCarverTest {
             int[] arr = s.findHorizontalSeam();
             s.removeHorizontalSeam(arr);
         }
-        s.picture().save("highResTest2HorizontallyAltered.jpg");
+        s.picture().save("test-images/altered/highResTest2HorizontallyAltered.jpg");
         end = System.currentTimeMillis();
         assertEquals(30,height-s.height());
         System.out.println(end - start);
@@ -245,68 +245,68 @@ public class SeamCarverTest {
     @Test
     public void runnerTest() throws UnsupportedEncodingException, IOException {
         //tests runner for testImage.png with 150 vertical seams and 50 horizontal seams removed
-        Picture pb1=new Picture("testImage.png");
+        Picture pb1=new Picture("test-images/unaltered/testImage.png");
         int height=pb1.height();
         int width=pb1.width();
 
         InputStream old = System.in;
-        byte[] passCode1 = "testImage.png\n150\n50\ntestImageRunnerTest.png".getBytes();
+        byte[] passCode1 = "test-images/unaltered/testImage.png\n150\n50\ntest-images/altered/testImageRunnerTest.png".getBytes();
         ByteArrayInputStream inStream1 = new ByteArrayInputStream(passCode1);
         System.setIn(inStream1);
         String[] s1=new String[1];
         Runner.main(s1);
-        Picture pa1=new Picture("testImageRunnerTest.png");
+        Picture pa1=new Picture("test-images/altered/testImageRunnerTest.png");
 
         assertEquals(150,width-pa1.width());
         assertEquals(50,height-pa1.height());
         System.setIn( old );
 
         //tests runner for testImage.png with 150 vertical seams and 50 horizontal seams removed
-        Picture pb2=new Picture("testImage2.png");
+        Picture pb2=new Picture("test-images/unaltered/testImage2.png");
         height=pb2.height();
         width=pb2.width();
 
-        byte[] passCode2 = "testImage2.png\n50\n20\ntestImage2RunnerTest.png".getBytes();
+        byte[] passCode2 = "test-images/unaltered/testImage2.png\n50\n20\ntest-images/altered/testImage2RunnerTest.png".getBytes();
         ByteArrayInputStream inStream2 = new ByteArrayInputStream(passCode2);
         System.setIn(inStream2);
         String[] s2=new String[1];
         Runner.main(s2);
 
-        Picture pa2=new Picture("testImage2RunnerTest.png");
+        Picture pa2=new Picture("test-images/altered/testImage2RunnerTest.png");
         assertEquals(50,width-pa2.width());
         assertEquals(20,height-pa2.height());
 
         System.setIn( old );
 
         //tests runner for highResTest.jpg with 70 vertical seams and 30 horizontal seams removed
-        Picture pb3=new Picture("highResTest.jpg");
+        Picture pb3=new Picture("test-images/unaltered/highResTest.jpg");
         height=pb3.height();
         width=pb3.width();
 
-        byte[] passCode3 = "highResTest.jpg\n70\n30\nhighResTestRunnerTest.jpg".getBytes();
+        byte[] passCode3 = "test-images/unaltered/highResTest.jpg\n70\n30\ntest-images/altered/highResTestRunnerTest.jpg".getBytes();
         ByteArrayInputStream inStream3 = new ByteArrayInputStream(passCode3);
         System.setIn(inStream3);
         String[] s3=new String[1];
         Runner.main(s3);
 
-        Picture pa3=new Picture("highResTestRunnerTest.jpg");
+        Picture pa3=new Picture("test-images/altered/highResTestRunnerTest.jpg");
         assertEquals(70,width-pa3.width());
         assertEquals(30,height-pa3.height());
 
         System.setIn( old );
 
         //tests runner for highResTest2.jpg with 20 vertical seams and 20 horizontal seams removed
-        Picture pb4=new Picture("highResTest2.jpg");
+        Picture pb4=new Picture("test-images/unaltered/highResTest2.jpg");
         height=pb4.height();
         width=pb4.width();
 
-        byte[] passCode4 = "highResTest2.jpg\n20\n20\nhighResTest2RunnerTest.jpg".getBytes();
+        byte[] passCode4 = "test-images/unaltered/highResTest2.jpg\n20\n20\ntest-images/altered/highResTest2RunnerTest.jpg".getBytes();
         ByteArrayInputStream inStream4 = new ByteArrayInputStream(passCode4);
         System.setIn(inStream4);
         String[] s4=new String[1];
         Runner.main(s4);
 
-        Picture pa4=new Picture("highResTest2RunnerTest.jpg");
+        Picture pa4=new Picture("test-images/altered/highResTest2RunnerTest.jpg");
         assertEquals(20,width-pa4.width());
         assertEquals(20,height-pa4.height());
 
